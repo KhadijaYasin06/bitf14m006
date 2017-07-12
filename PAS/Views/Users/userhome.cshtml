@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "index";
+}
+
+<header id="head" class="secondary"></header>
+
+<!-- container -->
+<div class="container">
+
+    <ol class="breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li class="active">User access</li>
+    </ol>
+
+    <div class="row">
+
+        <!-- Article main content -->
+        <article class="col-xs-12 maincontent">
+            <header class="page-header">
+                <h1 class="page-title">Welcome!</h1>
+            </header>
+
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body" style="background-image: url(~Images/spring.jpg)">
+                        <h3 class="thin text-center">Fill in your application Form, please.</h3>
+                        <hr>
+
+                        <form action="SubmitApplication" method="post">
+                            <div class="top-margin">
+                                <label>To: Principal <span class="text-danger">*</span></label>
+                                
+                            </div>
+                            <div class="top-margin">
+                                <label>Application Subject <span class="text-danger">*</span></label>
+                                <input type="text" name="subject" class="form-control">
+                            </div>
+                            <p>It is stated that</p>
+                            <div class="top-margin">
+                                <input type="text" name="body" class="form-control" value="Application Body">
+                            </div>
+                            
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-lg-4 text-right">
+                                    <button class="btn btn-action" type="submit">Submit Application</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </article>
+        <!-- /Article -->
+
+    </div>
+</div>	<!-- /container -->

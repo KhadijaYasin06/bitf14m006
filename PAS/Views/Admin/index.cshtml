@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "admin";
+}
+
+@model List<PAS.Models.Application>
+
+<header id="head" class="secondary"></header>
+
+<!-- container -->
+<div class="container">
+
+
+    @{
+        if (ViewBag.updated == 1)
+        {
+            @Html.Raw("<div class = 'status' style='padding:6px 12px; width:1.5cm; font-size:1.2em; background-color:black; color:white; border-radius:13px;'>Application Updated Succefully!</div>");
+        }
+        if (ViewBag.deleted == 1)
+        {
+            @Html.Raw("<div class = 'status' style='padding:6px 12px; width:1.5cm; font-size:1.2em; background-color:black; color:white; border-radius:13px;'>Application Updated Succefully!</div>");
+        }
+
+    }
+
+    <div class="row">
+
+        <!-- Article main content -->
+        <article class="col-sm-8 maincontent">
+            <header class="page-header">
+                <h1 class="page-title">Welcome Admin</h1>
+            </header>
+            
+            @{
+                foreach (var application1 in Model)
+                {
+                    <div class="single-entry">
+                        <h1>Subject:   @application1.Subject</h1>
+
+                        <p style="font:20px solid green"> Body:   @application1.Body</p>
+                        @{
+                            if (@application1.Approved == false)
+                            {
+                                @Html.Raw("<p>Not Approved.</p>");
+                            }
+                            else
+                            {
+                                @Html.Raw("<p>Approved!</p>");
+                            }
+                        }
+                        <div style="padding:6px 12px; width:1.5cm; font-size:1.2em; background-color:black; color:white; border-radius:13px;"><a href="~/Admin/Update?applicationId=@application1.ApplicationId" style="color:white">Update</a></div>
+                        
+                        <br />
+                        
+                        <div style="padding:6px 12px; width:1.5cm; font-size:1.2em; background-color:black; color:white; border-radius:13px;"><a href="~/Admin/DeleteApplication?applicationId=@application1.ApplicationId" style="color:white">Delete</a></div>
+
+                    </div>
+                }
+            }
+
+        </article>
+        <!-- /Article -->
+
+    </div>
+</div>	<!-- /container -->

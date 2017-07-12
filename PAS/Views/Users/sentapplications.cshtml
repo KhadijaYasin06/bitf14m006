@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "sentapplications";
+}
+
+@model List<PAS.Models.Application>
+
+<header id="head" class="secondary"></header>
+
+<!-- container -->
+<div class="container">
+
+    <ol class="breadcrumb">
+        <li><a href="index.html">Home</a></li>
+        <li class="active">About</li>
+    </ol>
+
+    <div class="row">
+
+        <!-- Article main content -->
+        <article class="col-sm-8 maincontent">
+            <header class="page-header">
+                <h1 class="page-title">Sent Applications</h1>
+            </header>
+
+            @{
+                foreach (var application in Model)
+                {
+                    <h3>@application.Subject</h3>
+                    <p>@application.Body</p>
+                    if (@application.Approved == false) 
+                    {
+                        @Html.Raw("<p>Not Approved.</p>"); 
+                    }
+                    else
+                    {
+                        @Html.Raw("<p>Approved!</p>");
+                    }
+                }
+            }
+            
+        </article>
+        <!-- /Article -->
+
+    </div>
+</div>	<!-- /container -->
+
+
